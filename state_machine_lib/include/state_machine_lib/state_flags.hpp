@@ -9,6 +9,14 @@ enum class CallbackType
   ENTRY,
   EXIT
 };
+
+enum TrafficLightColors
+{
+  E_RED = 0,
+  E_YELLOW = 0,
+  E_GREEN = 1,
+  E_COLOR_ERROR = 2
+};
 }
 
 #endif

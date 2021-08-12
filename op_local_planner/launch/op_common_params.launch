@@ -1,6 +1,5 @@
 <!-- -->
 <launch>
-
 	<arg name="mapSource" 					default="0" /> <!-- Autoware=0, Vector Map Folder=1, kml=2, lanelet2 file=3, kml map file path from runtime manager = 4 -->
 	<arg name="mapFileName" 				default="" />
 	<arg name="lanelet2_origin"				default="0,0,0," /> <!-- GPS origin for lanelet2 map files, Lat, Long, Alt  -->

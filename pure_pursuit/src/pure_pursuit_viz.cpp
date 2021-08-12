@@ -227,5 +227,4 @@ visualization_msgs::Marker displaySearchRadius(geometry_msgs::Point current_pose
   marker.frame_locked = true;
   return marker;
 }
-
 }  // namespace waypoint_follower

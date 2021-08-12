@@ -37,6 +37,7 @@
 #include "op_utility/UtilityH.h"
 #include "op_planner/MatrixOperations.h"
 #include "op_planner/KmlMapLoader.h"
+#include "op_planner/OpenDriveMapLoader.h"
 #include "op_planner/VectorMapLoader.h"
 
 namespace PlannerXNS
@@ -82,6 +83,8 @@ PlannerX::PlannerX()
 		m_MapSource = MAP_FOLDER;
 	else if(iSource == 2)
 		m_MapSource = MAP_KML_FILE;
+	else if(iSource == 6)
+		m_MapSource = MAP_OPENDRIVE_FILE;
 
 	nh.getParam("/dp_planner/mapFileName", m_KmlMapPath);
 
@@ -616,6 +619,14 @@ void PlannerX::PlannerMainLoop()
 			bKmlMapLoaded = true;
 			PlannerHNS::KmlMapLoader kml_loader;
 			kml_loader.LoadKML(m_KmlMapPath, m_Map);
+		}
+		else if(m_MapSource == MAP_OPENDRIVE_FILE && !bKmlMapLoaded)
+		{
+			bKmlMapLoaded = true;
+			PlannerHNS::OpenDriveMapLoader xodr_loader;
+			xodr_loader.EnableLaneStitching();
+			xodr_loader.LoadXODR(m_KmlMapPath, m_Map);
+
 		}
 		else if(m_MapSource == MAP_FOLDER && !bKmlMapLoaded)
 		{

@@ -17,6 +17,7 @@
 #include "op_global_planner_core.h"
 #include "op_ros_helpers/op_ROSHelpers.h"
 #include "op_planner/KmlMapLoader.h"
+#include "op_planner/OpenDriveMapLoader.h"
 #include "op_planner/Lanelet2MapLoader.h"
 #include "op_planner/VectorMapLoader.h"
 
@@ -368,7 +369,6 @@ bool GlobalPlanner::GenerateGlobalPlan(PlannerHNS::WayPoint& startPoint, Planner
 		return false;
 	}
 
-
 	if(generatedTotalPaths.size() > 0 && generatedTotalPaths.at(0).size()>0)
 	{
 		if(m_params.bEnableSmoothing)
@@ -391,7 +391,6 @@ bool GlobalPlanner::GenerateGlobalPlan(PlannerHNS::WayPoint& startPoint, Planner
 		for(unsigned int i=0; i < generatedTotalPaths.size(); i++)
 		{
 			m_prev_index.push_back(0); // start following the global path from waypoint index 0
-
 			PlannerHNS::PlanningHelpers::CalcAngleAndCost(generatedTotalPaths.at(i));
 			if(m_GlobalPathID > 10000)
 			{
