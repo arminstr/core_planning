@@ -403,6 +403,7 @@ void LaneSelectNode::findNeighborLanes()
   else
     right_lane_idx_ = -1;
 }
+
 visualization_msgs::Marker LaneSelectNode::createCurrentLaneMarker()
 {
   visualization_msgs::Marker marker;
