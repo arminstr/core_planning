@@ -400,8 +400,8 @@ void WaypointFollower::PathFollowingStep(double dt)
 	{
 		autoware_msgs::VehicleCmd cmd;
 		cmd.steer_cmd.steer = -m_curr_target_status.steer_torque;
- 		cmd.accel_cmd.accel = m_curr_target_status.accel_stroke;
- 		cmd.brake_cmd.brake = m_curr_target_status.brake_stroke;
+		cmd.accel_cmd.accel = m_curr_target_status.accel_stroke;
+		cmd.brake_cmd.brake = m_curr_target_status.brake_stroke;
 		pub_VehicleCommandOP.publish(cmd);
 	}
 }

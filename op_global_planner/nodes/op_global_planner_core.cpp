@@ -392,7 +392,7 @@ bool GlobalPlanner::GenerateGlobalPlan(PlannerHNS::WayPoint& startPoint, Planner
 		for(unsigned int i=0; i < generatedTotalPaths.size(); i++)
 		{
 			m_prev_index.push_back(0); // start following the global path from waypoint index 0
-			
+
 			PlannerHNS::PlanningHelpers::CalcAngleAndCost(generatedTotalPaths.at(i));
 			if(m_GlobalPathID > 10000)
 			{

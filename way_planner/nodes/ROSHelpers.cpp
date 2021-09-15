@@ -375,7 +375,7 @@ void ROSHelpers::createGlobalLaneArrayVelocityMarker(const autoware_msgs::LaneAr
   velocity_marker.header.stamp = ros::Time();
   velocity_marker.type = visualization_msgs::Marker::TEXT_VIEW_FACING;
   velocity_marker.action = visualization_msgs::Marker::ADD;
-  
+
   velocity_marker.color.a = 0.9;
   velocity_marker.color.r = 1;
   velocity_marker.color.g = 1;
